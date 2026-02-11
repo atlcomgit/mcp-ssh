@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  mcp-ssh:
+    container_name: mcp-ssh
+    image: node:22-alpine
+    working_dir: /app
+    command: >
+      sh -lc "
+        npm install &&
+        npm run dev
+      "
+    environment:
+      - NODE_ENV=development
+    env_file:
+      - .env
+    volumes:
+      - ./:/app
+      - node_modules:/app/node_modules
+      - ~/.ssh:/root/.ssh:ro
+    # Улучшение сигналов остановки
+    tty: true
+    # restart: unless-stopped
+
+volumes:
+  node_modules:

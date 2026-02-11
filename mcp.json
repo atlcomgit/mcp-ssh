@@ -1,0 +1,12 @@
+{
+  "servers": {
+    "mcp-ssh": {
+      "command": "bash",
+      "args": [
+        "-lc",
+        "docker compose -f ${workspaceFolder}/docker-compose.yml up -d --build && docker compose -f ${workspaceFolder}/docker-compose.yml exec -T mcp-ssh node /app/node_modules/tsx/dist/cli.mjs /app/src/index.ts"
+      ],
+      "workingDirectory": "${workspaceFolder}"
+    }
+  }
+}

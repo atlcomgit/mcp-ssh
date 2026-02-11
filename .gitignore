@@ -1,0 +1,6 @@
+.env
+.vscode
+.qodo
+docker-compose.yml
+node_modules
+ssh.log
